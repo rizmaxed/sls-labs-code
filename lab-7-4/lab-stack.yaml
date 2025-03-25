@@ -121,8 +121,8 @@ Resources:
           import logging
           import datetime
           import random
-          import requests
-          import base64
+          import urllib.request
+          import json
 
           logger = logging.getLogger()
           logger.setLevel(logging.INFO)
@@ -136,38 +136,39 @@ Resources:
                   table = dynamodb.Table(os.environ['DYNAMODB_TABLE'])
 
                   destination_bucket = os.environ['BUCKET_NAME']
-                  github_api_url = 'https://api.github.com/repos/rizmaxed/sls-labs-code/lab-7-4/data/images'
+                  github_api_url = 'https://api.github.com/repos/rizmaxed/sls-labs-code/contents/lab-7-4/data/images'
 
-                  # Step 1: List files in the GitHub folder
-                  response = requests.get(github_api_url)
-                  response.raise_for_status()
-                  files = response.json()
+                  # Step 1: Fetch file list from GitHub API
+                  with urllib.request.urlopen(github_api_url) as response:
+                      content = response.read().decode()
+                      files = json.loads(content)
 
                   for file in files:
-                      if file['type'] != 'file':
+                      if file.get('type') != 'file':
                           continue
 
                       file_name = file['name']
                       download_url = file['download_url']
                       logger.info(f"Downloading {file_name} from GitHub")
 
-                      file_response = requests.get(download_url)
-                      file_response.raise_for_status()
+                      # Step 2: Download the file content
+                      with urllib.request.urlopen(download_url) as file_response:
+                          file_content = file_response.read()
 
-                      # Step 2: Upload to S3
+                      # Step 3: Upload to S3
                       s3.put_object(
                           Bucket=destination_bucket,
                           Key=file_name,
-                          Body=file_response.content,
-                          ContentType=file_response.headers.get('Content-Type', 'binary/octet-stream')
+                          Body=file_content,
+                          ContentType='image/jpeg'  # Optional: adjust based on file extension
                       )
-                      logger.info(f"Uploaded {file_name} to {destination_bucket}")
+                      logger.info(f"Uploaded {file_name} to S3 bucket: {destination_bucket}")
 
-                      # Step 3: Write metadata to DynamoDB
+                      # Step 4: Log to DynamoDB
                       table.put_item(
                           Item={
                               's3_key': file_name,
-                              'content_type': file_response.headers.get('Content-Type', 'binary/octet-stream'),
+                              'content_type': 'image/jpeg',
                               'file_name': file_name,
                               'last_modified_date': datetime.datetime.utcnow().isoformat(),
                               'expires_at': int((datetime.datetime.now() + datetime.timedelta(seconds=random.randint(0, 300))).timestamp())
@@ -175,7 +176,7 @@ Resources:
                       )
                       logger.info(f"Inserted metadata for {file_name} into DynamoDB")
 
-                  logger.info('All GitHub files processed and loaded into S3 + DynamoDB.')
+                  logger.info('All GitHub files processed and stored.')
 
               except Exception as e:
                   logger.error('Exception occurred: %s', e)

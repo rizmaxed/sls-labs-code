@@ -125,9 +125,3 @@ Resources:
               finally:
                   logger.info('Sending CloudFormation response with status: %s', status)
                   cfnresponse.send(event, context, status, {})
-
-  LabLoadDataCustomResource:
-    Type: "Custom::LabLoadDataCustomResource"
-    DependsOn: LabLoadDataFunction
-    Properties:
-      ServiceToken: !GetAtt [LabLoadDataFunction, Arn]

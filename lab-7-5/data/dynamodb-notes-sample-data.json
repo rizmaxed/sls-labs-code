@@ -1,0 +1,92 @@
+[
+    {
+        "user_id": "d6ecbcf7-59fa-4a32-ae8a-cdbfd6933c0e",
+        "timestamp": 1700030001,
+        "title": "Food for Thought",
+        "content": "If at first you do not succeed skydiving is not for you",
+        "category": "Life",
+        "note_id": "10ca04e2-5316-455b-84ad-2a525fc71dab",
+        "user_name": "Alice Johnson"
+    },
+    {
+        "user_id": "a64f478b-9bea-40a2-893e-0fce2d1826e5",
+        "timestamp": 1700030002,
+        "title": "Food for Thought",
+        "content": "I am on a seafood diet I see food and I eat it",
+        "category": "Random",
+        "note_id": "2703d166-56cf-40e0-a277-78e1a0f84c9d",
+        "user_name": "Bob Smith"
+    },
+    {
+        "user_id": "0c391a26-bf3c-4bd1-958b-7e68173f4f27",
+        "timestamp": 1700030003,
+        "title": "Deep Thoughts",
+        "content": "Why don't skeletons fight each other? They don't have the guts",
+        "category": "Humor",
+        "note_id": "e6674f37-9b58-4b3f-9c05-473a81497545",
+        "user_name": "Charlie Davis"
+    },
+    {
+        "user_id": "a17ed229-5db7-4872-b297-d1cdd6904971",
+        "timestamp": 1700030004,
+        "title": "Life Lessons",
+        "content": "Behind every great man is a woman rolling her eyes",
+        "category": "Technology",
+        "note_id": "2229f8eb-b9ec-4712-b55d-cd4ce838a105",
+        "user_name": "Diana Evans"
+    },
+    {
+        "user_id": "741171fe-9eb0-49f7-a50e-365bb1489170",
+        "timestamp": 1700030005,
+        "title": "Laugh Out Loud",
+        "content": "I told my computer I needed a break and it said no problem it will go to sleep",
+        "category": "Life",
+        "note_id": "021137dd-cd14-483f-9a24-aab402cc4473",
+        "user_name": "Ethan Brown"
+    },
+    {
+        "user_id": "7ceea08d-05eb-41cc-9099-9a69dda7465d",
+        "timestamp": 1700030006,
+        "title": "Jokes of the Day",
+        "content": "Common sense is like deodorant. The people who need it most never use it",
+        "category": "Technology",
+        "note_id": "d06d8c2d-f0a0-49e1-8806-f848d0de5c66",
+        "user_name": "Fiona Wilson"
+    },
+    {
+        "user_id": "f7ef34e3-72d7-42a3-bc9c-6c75ea81e879",
+        "timestamp": 1700030007,
+        "title": "Laugh Out Loud",
+        "content": "I am not arguing, I am just explaining why I am right",
+        "category": "Life",
+        "note_id": "f753f2d4-3fce-4f48-a563-ff060c886059",
+        "user_name": "George Clark"
+    },
+    {
+        "user_id": "9a770008-775e-4db8-8517-b0e92a235608",
+        "timestamp": 1700030008,
+        "title": "Motivational Monday",
+        "content": "I used to think I was indecisive, but now I'm not so sure",
+        "category": "Humor",
+        "note_id": "a4d341b0-ce29-416c-9471-8e290995379c",
+        "user_name": "Hannah Lewis"
+    },
+    {
+        "user_id": "253dec66-5919-4dab-a36e-be2fca028235",
+        "timestamp": 1700030009,
+        "title": "Food for Thought",
+        "content": "Life is short. Smile while you still have teeth",
+        "category": "Technology",
+        "note_id": "d92b0511-aaa6-476e-8138-1eb3e3b8c4da",
+        "user_name": "Ian Walker"
+    },
+    {
+        "user_id": "120cee7b-6e4d-4865-9774-6819d155cc5f",
+        "timestamp": 1700030010,
+        "title": "Food for Thought",
+        "content": "Be yourself, everyone else is already taken",
+        "category": "Random",
+        "note_id": "1a480fd9-cef0-40be-96de-570ff73c9f35",
+        "user_name": "Julia Adams"
+    }
+]
