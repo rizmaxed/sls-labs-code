@@ -31,8 +31,7 @@ Resources:
       Architectures:
         - x86_64
       AutoPublishAlias: !Ref EnvType
-      DeploymentPreference:
-        Type: Canary10Percent10Minutes
+
   ApiGateway:
     Type: AWS::Serverless::Api
     Properties:
