@@ -1,0 +1,61 @@
+{
+    "Type": "Notification",
+    "MessageId": "a21b955a-fa2d-5081-b9ab-f50951348d44",
+    "TopicArn": "arn:aws:sns:us-east-1:654654460470:Lambda-Failure-Notifications",
+    "Message": {
+        "version": "1.0",
+        "timestamp": "2025-03-18T17:09:45.657Z",
+        "requestContext": {
+            "requestId": "28aa9254-826a-4033-b5cd-552a0f255164",
+            "functionArn": "arn:aws:lambda:us-east-1:654654460470:function:dlqTest:$LATEST",
+            "condition": "RetriesExhausted",
+            "approximateInvokeCount": 3
+        },
+        "requestPayload": {
+            "Records": [
+                {
+                    "EventSource": "aws:sns",
+                    "EventVersion": "1.0",
+                    "EventSubscriptionArn": "arn:aws:sns:us-east-1:654654460470:Lambda-Trigger:73ff3de2-eb755380801b",
+                    "Sns": {
+                        "Type": "Notification",
+                        "MessageId": "9d5373f5-1372-5b9e-bfc3-13a6b9014600",
+                        "TopicArn": "arn:aws:sns:us-east-1:654654460470:Lambda-Trigger",
+                        "Subject": null,
+                        "Message": "Test failure event",
+                        "Timestamp": "2025-03-18T17:06:59.016Z",
+                        "SignatureVersion": "1",
+                        "Signature": "b9OO8BfL7JWB8K7KgylnYwAHHVHeLFw==",
+                        "SigningCertUrl": "https://sns.us-east-1.amazonaws.com/SimpleNotificationService-14631ec1136.pem",
+                        "UnsubscribeUrl": "https://sns.us-east-1.amazonaws.com/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:us-east-1:654654460470:Lambda-Trigger:73ff3de2-eb755380801b",
+                        "MessageAttributes": {
+                            "shouldFail": {
+                                "Type": "String",
+                                "Value": "true"
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "responseContext": {
+            "statusCode": 200,
+            "executedVersion": "$LATEST",
+            "functionError": "Unhandled"
+        },
+        "responsePayload": {
+            "errorType": "Error",
+            "errorMessage": "Simulated function failure",
+            "trace": [
+                "Error: Simulated function failure",
+                "    at Runtime.lambdaHandler [as handler] (file:///var/task/app.mjs:18:13)",
+                "    at Runtime.handleOnceNonStreaming (file:///var/runtime/index.mjs:1173:29)"
+            ]
+        }
+    },
+    "Timestamp": "2025-03-18T17:09:45.712Z",
+    "SignatureVersion": "1",
+    "Signature": "lU2wKpr9/dquydaGo12pGFLT5M8Q+lRu6Ix/L5Q==",
+    "SigningCertURL": "https://sns.us-east-1.amazonaws.com/SimpleNotificationService-9c64631ec1136.pem",
+    "UnsubscribeURL": "https://sns.us-east-1.amazonaws.com/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:us-east-1:654654460470:Lambda-Failure-Notifications:dede31e7-fe3a-4946-84b7-b4bbb7effdc3"
+}

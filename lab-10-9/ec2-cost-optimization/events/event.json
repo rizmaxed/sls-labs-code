@@ -1,0 +1,6 @@
+{
+  "action": "stop",
+  "tags": {
+    "env": "dev,test"
+  }
+}

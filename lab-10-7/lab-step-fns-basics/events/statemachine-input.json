@@ -1,0 +1,14 @@
+{
+    "Comment": "Sample input data",
+    "lambda": {
+        "operation": "add",
+        "input": {
+            "operand1": 5,
+            "operand2": 3
+        }
+    },
+    "additional_data": {
+        "key1": "value1",
+        "key2": "value2"
+    }
+}
