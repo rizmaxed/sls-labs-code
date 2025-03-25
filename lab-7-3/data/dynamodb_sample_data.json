@@ -1,0 +1,92 @@
+[
+    {
+        "user_id": "console_user123",
+        "timestamp": 1700030001,
+        "title": "Deep Thoughts",
+        "content": "If at first you do not succeed skydiving is not for you",
+        "category": "Random",
+        "note_id": "note_s001",
+        "user_name": "Console User 1"
+    },
+    {
+        "user_id": "console_user223",
+        "timestamp": 1700030002,
+        "title": "Jokes of the Day",
+        "content": "I am on a seafood diet I see food and I eat it",
+        "category": "Inspiration",
+        "note_id": "note_s002",
+        "user_name": "Console User 2"
+    },
+    {
+        "user_id": "console_user323",
+        "timestamp": 1700030003,
+        "title": "Life Lessons",
+        "content": "Why dont skeletons fight each other They do not have the guts",
+        "category": "Life",
+        "note_id": "note_s003",
+        "user_name": "Console User 3"
+    },
+    {
+        "user_id": "console_user423",
+        "timestamp": 1700030004,
+        "title": "Life Lessons",
+        "content": "Behind every great man is a woman rolling her eyes",
+        "category": "Random",
+        "note_id": "note_s004",
+        "user_name": "Console User 4"
+    },
+    {
+        "user_id": "console_user523",
+        "timestamp": 1700030005,
+        "title": "Jokes of the Day",
+        "content": "I told my computer I needed a break and it said no problem it will go to sleep",
+        "category": "Life",
+        "note_id": "note_s005",
+        "user_name": "Console User 5"
+    },
+    {
+        "user_id": "console_user623",
+        "timestamp": 1700030006,
+        "title": "Motivational Monday",
+        "content": "Common sense is like deodorant The people who need it most never use it",
+        "category": "Technology",
+        "note_id": "note_s006",
+        "user_name": "Console User 6"
+    },
+    {
+        "user_id": "console_user723",
+        "timestamp": 1700030007,
+        "title": "Laugh Out Loud",
+        "content": "I am not arguing I am just explaining why I am right",
+        "category": "Humor",
+        "note_id": "note_s007",
+        "user_name": "Console User 7"
+    },
+    {
+        "user_id": "console_user823",
+        "timestamp": 1700030008,
+        "title": "Motivational Monday",
+        "content": "I used to think I was indecisive but now I am not so sure",
+        "category": "Technology",
+        "note_id": "note_s008",
+        "user_name": "Console User 8"
+    },
+    {
+        "user_id": "console_user923",
+        "timestamp": 1700030009,
+        "title": "Food for Thought",
+        "content": "Life is short Smile while you still have teeth",
+        "category": "Technology",
+        "note_id": "note_s009",
+        "user_name": "Console User 9"
+    },
+    {
+        "user_id": "console_user1023",
+        "timestamp": 1700030010,
+        "title": "Bits of Wisdom",
+        "content": "Be yourself everyone else is already taken",
+        "category": "Humor",
+        "note_id": "note_s010",
+        "user_name": "Console User 10"
+    }
+]
