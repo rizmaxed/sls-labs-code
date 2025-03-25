@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: "2010-09-09"
-Description: CloudFormation template to deploy the initial lab environment.
+Description: CloudFormation template to deploy the initial lab environment
 
 Resources:
   LabNotesTable:
