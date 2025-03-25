@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: "2010-09-09"
-Description: CloudFormation template to create an S3 bucket, DynamoDB table, and Lambda functions for managing images.
+Description: CloudFormation template to deploy the initial lab environment.
 
 Resources:
   LabS3Bucket:

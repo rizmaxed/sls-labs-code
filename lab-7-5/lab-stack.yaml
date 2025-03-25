@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: "2010-09-09"
-Description: CloudFormation template to create a DynamoDB table with data
+Description: CloudFormation template to deploy the initial lab environment.
 
 Resources:
   LabNotesTable:
@@ -48,11 +48,6 @@ Resources:
             Statement:
               - Effect: "Allow"
                 Action:
-                  - "s3:GetObject"
-                Resource:
-                  - "arn:aws:s3:::nfclabs-share/lab-data/lab-7-5/dynamodb-notes-sample-data.json"
-              - Effect: "Allow"
-                Action:
                   - "dynamodb:PutItem"
                   - "dynamodb:UpdateItem"
                 Resource: !GetAtt LabNotesTable.Arn
@@ -84,44 +79,39 @@ Resources:
       Timeout: 300
       Environment:
         Variables:
-          SOURCE_BUCKET: "nfclabs-share"
-          SOURCE_KEY: "lab-data/lab-7-5/dynamodb-notes-sample-data.json"
+          GITHUB_URL: "https://raw.githubusercontent.com/rizmaxed/sls-labs-code/main/lab-7-5/data/dynamodb-notes-sample-data.json"
           DYNAMODB_TABLE: !Ref LabNotesTable
       Code:
         ZipFile: |
           import boto3
           import os
-          import logging
           import json
-          import cfnresponse
+          import urllib.request
+          import logging
 
           logger = logging.getLogger()
           logger.setLevel(logging.INFO)
 
           def handler(event, context):
               logger.info('Event: %s', event)
-              status = cfnresponse.SUCCESS
               try:
-                  s3 = boto3.client('s3')
                   dynamodb = boto3.resource('dynamodb')
                   table = dynamodb.Table(os.environ['DYNAMODB_TABLE'])
+
+                  github_url = os.environ['GITHUB_URL']
+                  logger.info(f"Downloading JSON data from GitHub: {github_url}")
+
+                  with urllib.request.urlopen(github_url) as response:
+                      json_data = response.read().decode('utf-8')
+
+                  data = json.loads(json_data)
                   
-                  source_bucket = os.environ['SOURCE_BUCKET']
-                  source_key = os.environ['SOURCE_KEY']
-                  
-                  if event['RequestType'] in ['Create', 'Update']:
-                      logger.info(f'Reading JSON data from S3: {source_bucket}/{source_key}')
-                      response = s3.get_object(Bucket=source_bucket, Key=source_key)
-                      json_data = response['Body'].read().decode('utf-8')
-                      data = json.loads(json_data)
-                      
-                      for item in data:
-                          logger.info(f'Inserting item: {item}')
-                          table.put_item(Item=item)
-                      logger.info('Data loaded successfully into DynamoDB')
+                  for item in data:
+                      logger.info(f"Inserting item: {item}")
+                      table.put_item(Item=item)
+
+                  logger.info("Data loaded successfully into DynamoDB.")
+
               except Exception as e:
-                  logger.error('Exception: %s', e)
-                  status = cfnresponse.FAILED
-              finally:
-                  logger.info('Sending CloudFormation response with status: %s', status)
-                  cfnresponse.send(event, context, status, {})
+                  logger.error(f"Exception occurred: {e}")
+                  raise
