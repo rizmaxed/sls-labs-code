@@ -136,7 +136,7 @@ Resources:
                   table = dynamodb.Table(os.environ['DYNAMODB_TABLE'])
 
                   destination_bucket = os.environ['BUCKET_NAME']
-                  github_api_url = 'https://api.github.com/repos/rizmaxed/sls-labs-code/contents/lab-7-4/data/images'
+                  github_api_url = 'https://api.github.com/repos/rizmaxed/sls-labs-code/lab-7-4/data/images'
 
                   # Step 1: List files in the GitHub folder
                   response = requests.get(github_api_url)
